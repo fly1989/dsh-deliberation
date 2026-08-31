@@ -1,0 +1,33 @@
+# Opt-in automatic masked review for an installed dsh-deliberation bundle.
+# DSH replaces a targeted row's complete config; keep every required field.
+- id: tool-deliberation
+  config:
+    freshProvider: spawn
+    forkProvider: fork
+    midForkProvider: mid-fork-step
+    maxRecentSteps: 8
+    maxBranches: 3
+    maxDepth: 1
+    branchTimeoutMs: 600000
+    routes:
+      - name: same
+        description: Inherit the Primary provider, model, and token ceiling.
+    capabilityProfiles:
+      - name: reason-only
+        description: Use no inherited model-facing tools; reason only from the projected context.
+        allow: []
+      - name: read-only
+        description: Inspect the workspace with read, grep, and glob; do not execute commands or mutate files.
+        allow:
+          - read
+          - grep
+          - glob
+    autoReview:
+      enabled: true
+      scope: tool-bearing-turns
+      provider: mid-fork-current-turn
+      route: same
+      capability: read-only
+      publish: updates-only
+      timeoutMs: 300000
+    debug: false

@@ -1,0 +1,53 @@
+# Default installation layer for dsh-deliberation.
+# The base DSH bundle owns spawn/fork. This optional bundle adds one bounded
+# recent-Step provider family and one current-Turn instance, plus the manual
+# deliberation tool and opt-in stopping-boundary review.
+- insert:
+    - id: subagent-mid-fork-step-family-in-process
+      name: dsh-deliberation/mid-fork-provider
+      config:
+        providerName: mid-fork-step
+        window: recent-steps
+        maxRecentSteps: 8
+        mask: reasoning-only
+        maxSnapshotChars: 65536
+        maxSnapshotImages: 20
+    - id: subagent-mid-fork-current-turn-in-process
+      name: dsh-deliberation/mid-fork-provider
+      config:
+        providerName: mid-fork-current-turn
+        window: current-turn
+        mask: reasoning-only
+        maxSnapshotChars: 65536
+        maxSnapshotImages: 20
+    - id: tool-deliberation
+      name: dsh-deliberation
+      config:
+        freshProvider: spawn
+        forkProvider: fork
+        midForkProvider: mid-fork-step
+        maxRecentSteps: 8
+        maxBranches: 3
+        maxDepth: 1
+        branchTimeoutMs: 600000
+        routes:
+          - name: same
+            description: Inherit the Primary provider, model, and token ceiling.
+        capabilityProfiles:
+          - name: reason-only
+            description: Use no inherited model-facing tools; reason only from the projected context.
+            allow: []
+          - name: read-only
+            description: Inspect the workspace with read, grep, and glob; do not execute commands or mutate files.
+            allow:
+              - read
+              - grep
+              - glob
+        autoReview:
+          enabled: false
+          scope: tool-bearing-turns
+          provider: mid-fork-current-turn
+          route: same
+          capability: read-only
+          publish: updates-only
+          timeoutMs: 300000

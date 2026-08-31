@@ -1,0 +1,11 @@
+node_modules/
+lib/
+dist/
+coverage/
+.tmp-dsh-home/
+debug/*.log
+# Local-only runtime walkthrough; keep it outside the published contract.
+docs/HARNESS-RUNTIME.zh-CN.md
+*.tgz
+.env
+.DS_Store

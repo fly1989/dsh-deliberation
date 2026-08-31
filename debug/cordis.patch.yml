@@ -1,0 +1,20 @@
+# Debug overlay for the local dsh-deliberation checkout.
+# This replaces the complete tool-deliberation row, so keep every required
+# config field here. Apply it with dsh --patch; do not install it as a bundle.
+- id: tool-deliberation
+  name: dsh-deliberation
+  config:
+    freshProvider: spawn
+    forkProvider: fork
+    toolName: deliberate
+    maxBranches: 2
+    maxDepth: 1
+    branchTimeoutMs: 180000
+    debug: true
+    routes:
+      - name: same
+        description: Inherit the Primary provider, model, and token ceiling.
+    capabilityProfiles:
+      - name: reason-only
+        description: Use no inherited model-facing tools; reason only from the projected context.
+        allow: []
