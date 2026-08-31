@@ -65,9 +65,10 @@
   },
   "scripts": {
     "build": "tsdown --config tsdown.config.ts",
+    "hygiene": "node scripts/check-repository-hygiene.mjs",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "vitest run",
-    "check": "npm run typecheck && npm test && npm run build",
+    "check": "npm run hygiene && npm run typecheck && npm test && npm run build",
     "release:check": "npm run check && npm pack --dry-run --ignore-scripts",
     "prepare": "npm run build",
     "prepack": "npm run check"

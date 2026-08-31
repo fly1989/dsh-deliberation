@@ -2,6 +2,14 @@
 
 All notable public changes to this project are documented here.
 
+## Unreleased
+
+### Repository
+
+- Keep the personal `debug/` lab local-only while retaining the public architecture and research notes.
+- Add a CI hygiene check that rejects tracked debug artifacts, runtime output, release tarballs, and machine-specific paths.
+- Align the architecture guide with the DSH `0.1.1-rc.2` compatibility line used by CI.
+
 ## 0.1.0 — 2026-08-31
 
 Initial experimental preview.

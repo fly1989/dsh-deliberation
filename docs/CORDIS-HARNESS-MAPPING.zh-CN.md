@@ -10,7 +10,7 @@ DSH Harness：把这些基础能力组织成 tools / systemPrompt / agents / sub
 dsh-deliberation：组合这些服务，提供 deliberate tool + stopping-boundary masked review
 ```
 
-版本背景：本文按 DSH 0.1.x 的公开 plugin/subagent/tool seam 撰写，当前 CI 使用 `@deepseek-ai/cordis 4.0.1` 与 DSH `0.1.0-rc.8` 验证。DSH 仍处于 developer preview，升级到更新的 0.1.x 后请重新运行检查；源码路径示例只用于说明概念，不假设读者的本地目录结构。
+版本背景：本文按 DSH 0.1.x 的公开 plugin/subagent/tool seam 撰写，当前 CI 使用 `@deepseek-ai/cordis 4.0.1` 与 DSH `0.1.1-rc.2` 验证。DSH 仍处于 developer preview，升级到更新的 0.1.x 后请重新运行检查；源码路径示例只用于说明概念，不假设读者的本地目录结构。
 
 ## 1. 先记住三层，不要把它们混成一个“插件”
 

@@ -3,7 +3,9 @@ lib/
 dist/
 coverage/
 .tmp-dsh-home/
-debug/*.log
+# Personal local debug lab. Keep the directory on the developer machine, but
+# never track or publish any of its configs, notes, or runtime logs.
+debug/
 # Local-only runtime walkthrough; keep it outside the published contract.
 docs/HARNESS-RUNTIME.zh-CN.md
 *.tgz
