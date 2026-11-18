@@ -4,7 +4,7 @@
 
 一个非官方 DeepSeek Harness 插件：提供有界、由 Primary 控制的 deliberation，以及可选的 reasoning-masked review。
 
-> **状态：实验预览版。** Runtime、失败隔离和协议边界已有测试；目前没有配对 benchmark 能证明它提高正确率或推理成本回报，因此自动审查默认关闭。
+> **状态：持续维护中的实验预览版。** 自动审查默认关闭；现有实验尚未证明 reasoning masking 能稳定提高正确率或降低总体成本。
 
 插件提供两条相关能力：
 
@@ -14,6 +14,16 @@
 | 自动 masked review | 可选的 `agent/turn-stopping` hook | 不带当前工具 Turn 已记录的 reasoning 重新复审，只向 Primary 发布决策相关增量 |
 
 child 只提供证据、不确定项、可能错误与下一步检查，不投票、不选择 winner，也不替代 Primary。
+
+## 项目状态与实验进展
+
+本仓库会持续维护与更新，涵盖插件实现、DSH 兼容性说明、使用文档和实验记录。
+
+**2026-11-18，本轮 masked-review 对照研究已收尾。** 有本地验收结果的闭环对照主要覆盖两道工程题。隐藏 reasoning 未显示稳定收益，也出现过误导修复的反馈。一组运行因答案材料进入轨迹，已从效果分析中排除。
+
+本轮保留／隐藏对照采用相同的合成 user 轨迹文档，只改变已记录 reasoning 是否可见；未比较原生历史回放与重写，也未验证多轮原生前缀或最近 K 个 Step 窗口的效果。它不是对手动 `deliberate` 所有角色和分支组合的整体评测。实验代码主要位于独立分支，不代表已合入 `main` 或发布到 npm。
+
+详见[配对实验结果、发现与避坑记录](docs/MASKED-REVIEW-EXPERIMENT-RESULTS.zh-CN.md)。后续若开展新实验，会另行记录条件、成本与结果，包括负面和无差异结果。
 
 ## 五分钟启动
 
@@ -243,6 +253,7 @@ release check 会依次完成类型检查、全部测试、production build 和 
 - [Runtime 完整流程](docs/FLOW.zh-CN.md)
 - [Cordis / Harness / 源码映射](docs/CORDIS-HARNESS-MAPPING.zh-CN.md)
 - [研究假设、论文、本地实验与评测计划](docs/MASKED-REVIEW-RESEARCH-NOTES.zh-CN.md)
+- [配对实验结果、发现与避坑记录](docs/MASKED-REVIEW-EXPERIMENT-RESULTS.zh-CN.md)
 - [Reasoning-masked fork 实现说明](docs/REASONING-MASKED-FORK-EXPERIMENT.zh-CN.md)
 - [术语表](docs/TERMS.zh-CN.md)
 - [待定与明确不支持内容](docs/DEFERRED.zh-CN.md)

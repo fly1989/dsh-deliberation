@@ -4,7 +4,7 @@ English | [简体中文](README.zh-CN.md)
 
 An unofficial DeepSeek Harness plugin for bounded, Primary-controlled deliberation and opt-in reasoning-masked review.
 
-> **Status: experimental preview.** The runtime and failure boundaries are tested. Paired benchmark data does not yet establish a correctness or cost benefit, so automatic review is disabled by default.
+> **Status: actively maintained experimental preview.** Automatic review is disabled by default. Existing experiments have not established a consistent correctness or total-cost benefit from reasoning masking.
 
 The plugin adds two related capabilities:
 
@@ -14,6 +14,16 @@ The plugin adds two related capabilities:
 | automatic masked review | Optional `agent/turn-stopping` hook | Re-reads the current tool-bearing Turn without its recorded reasoning and publishes only decision-relevant updates |
 
 Children propose evidence, uncertainty, possible errors, and next checks. They never vote, select a winner, or replace the Primary.
+
+## Project status and experiment progress
+
+This repository will continue to receive implementation, DSH compatibility, documentation, and experiment updates.
+
+**The November 2026 masked-review study concluded on November 18.** The closed-loop comparisons with local acceptance checks chiefly covered two engineering tasks. Hiding reasoning showed no consistent benefit. One continuation followed an erroneous suggestion and produced an incomplete fix. One run was excluded from the outcome analysis because the trajectory included answer material.
+
+The retention/masking comparisons used the same synthetic user trajectory document, varying whether recorded reasoning was included. They did not compare native-history replay with rewritten history, or evaluate nonempty earlier-Turn prefixes or last-K-Step windows. They were not a full evaluation of every manual `deliberate` role or branch combination. Experiment code lives primarily on separate branches; this report does not imply that it has been merged into `main` or released on npm.
+
+See the [experiment results, findings, and pitfalls (Chinese)](docs/MASKED-REVIEW-EXPERIMENT-RESULTS.zh-CN.md). Any future study will document its conditions, costs, and outcomes separately, including negative and unchanged results.
 
 ## Quick start
 
@@ -244,6 +254,7 @@ The release check runs type checking, all tests, the production build, and an np
 - [Runtime flow](docs/FLOW.zh-CN.md)
 - [Cordis / Harness / source mapping](docs/CORDIS-HARNESS-MAPPING.zh-CN.md)
 - [Research assumptions, papers, local experiments, and evaluation plan](docs/MASKED-REVIEW-RESEARCH-NOTES.zh-CN.md)
+- [Paired experiment results, findings, and pitfalls](docs/MASKED-REVIEW-EXPERIMENT-RESULTS.zh-CN.md)
 - [Reasoning-masked fork implementation notes](docs/REASONING-MASKED-FORK-EXPERIMENT.zh-CN.md)
 - [Terminology](docs/TERMS.zh-CN.md)
 - [Deferred and unsupported work](docs/DEFERRED.zh-CN.md)
