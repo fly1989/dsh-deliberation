@@ -2,9 +2,9 @@
 
 本文记录 `dsh-deliberation` 当前关于 reasoning masking、触发、历史投影、KV cache、child 返回和评测的已知事实与研究假设。它是研究设计说明，不是效果声明。
 
-> **文档定位**：这是本项目的研究主文档。README 负责安装与公开契约，`FLOW.zh-CN.md` 负责运行时流程，`REASONING-MASKED-FORK-EXPERIMENT.zh-CN.md` 负责投影实现细节；关于“为什么做、目前知道什么、还不知道什么、怎样证伪”的内容统一以本文为准。
+> **文档定位**：本文保留研究假设与设计讨论。README 负责安装与公开契约，`FLOW.zh-CN.md` 负责运行时流程，`REASONING-MASKED-FORK-EXPERIMENT.zh-CN.md` 负责投影实现细节；已完成实验的事实、结果与限制以[配对实验结果、发现与避坑记录](MASKED-REVIEW-EXPERIMENT-RESULTS.zh-CN.md)为准。下文的待研究提议不代表当前排期或已验证收益。
 >
-> **2026-11 配对实验结果**：在已有的样本中，没有观察到隐藏 reasoning 带来稳定收益，也出现过有害反馈；本文中的假设（尤其 H6）在这些实验里未获支持，也没有得到公平检验。详见 [配对实验结果、发现与避坑记录](MASKED-REVIEW-EXPERIMENT-RESULTS.zh-CN.md)。
+> **2026-11-18 进展**：仓库继续维护，本轮 masked-review 对照研究已收尾。已有样本未显示稳定收益，并出现过有害反馈；相关假设（尤其 H6）未获支持。实验覆盖有限，未充分检验原生前缀、多分支与局部 Step 窗口等设想，不能据此判断其普遍有效或无效。长度分布、动态切点与熵触发研究暂缓。
 
 本文使用以下证据标签，避免把设计直觉写成事实：
 
