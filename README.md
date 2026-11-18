@@ -244,6 +244,7 @@ The release check runs type checking, all tests, the production build, and an np
 - [Runtime flow](docs/FLOW.zh-CN.md)
 - [Cordis / Harness / source mapping](docs/CORDIS-HARNESS-MAPPING.zh-CN.md)
 - [Research assumptions, papers, local experiments, and evaluation plan](docs/MASKED-REVIEW-RESEARCH-NOTES.zh-CN.md)
+- [Paired experiment results, findings, and pitfalls](docs/MASKED-REVIEW-EXPERIMENT-RESULTS.zh-CN.md)
 - [Reasoning-masked fork implementation notes](docs/REASONING-MASKED-FORK-EXPERIMENT.zh-CN.md)
 - [Terminology](docs/TERMS.zh-CN.md)
 - [Deferred and unsupported work](docs/DEFERRED.zh-CN.md)

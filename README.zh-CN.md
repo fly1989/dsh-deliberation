@@ -243,6 +243,7 @@ release check 会依次完成类型检查、全部测试、production build 和 
 - [Runtime 完整流程](docs/FLOW.zh-CN.md)
 - [Cordis / Harness / 源码映射](docs/CORDIS-HARNESS-MAPPING.zh-CN.md)
 - [研究假设、论文、本地实验与评测计划](docs/MASKED-REVIEW-RESEARCH-NOTES.zh-CN.md)
+- [配对实验结果、发现与避坑记录](docs/MASKED-REVIEW-EXPERIMENT-RESULTS.zh-CN.md)
 - [Reasoning-masked fork 实现说明](docs/REASONING-MASKED-FORK-EXPERIMENT.zh-CN.md)
 - [术语表](docs/TERMS.zh-CN.md)
 - [待定与明确不支持内容](docs/DEFERRED.zh-CN.md)
